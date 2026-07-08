@@ -16,6 +16,7 @@ router.get('/', showHomePage);
 router.get('/organizations', showOrganizationsPage);
 router.get('/projects', showProjectsPage);
 router.get('/categories', showCategoriesPage);
+router.get('/category/:id', showCategoryDetailsPage);
 router.get('/project/:id', showProjectDetailsPage);
 
 // error-handling routes
