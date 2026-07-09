@@ -3,7 +3,8 @@ import { showHomePage } from './controllers/index.js';
 import { showOrganizationsPage,
          processNewOrganizationForm,
          showOrganizationDetailsPage,
-         showNewOrganizationForm} from './controllers/organizations.js';
+         showNewOrganizationForm,
+         organizationValidation } from './controllers/organizations.js';
 import { showProjectsPage,
          showProjectDetailsPage } from './controllers/projects.js';
 import { showCategoriesPage,
@@ -27,7 +28,7 @@ router.get('/new-organization', showNewOrganizationForm);
 router.get('/test-error', showTestErrorPage);
 
 // Route to handle new organization form submission
-router.post('/new-organization', processNewOrganizationForm);
+router.post('/new-organization', organizationValidation, processNewOrganizationForm);
 
 
 export default router;
