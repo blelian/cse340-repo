@@ -1,4 +1,6 @@
-import { getUpcomingProjects, getProjectById, getProjectDetails } from '../models/projects.js';
+import { getUpcomingProjects,
+         getProjectById,
+         getProjectDetails } from '../models/projects.js';
 import { getCategoriesByProjectId } from '../models/categories.js';
 
 

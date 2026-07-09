@@ -1,14 +1,14 @@
 import express from 'express';
-
 import { showHomePage } from './controllers/index.js';
-import { showOrganizationsPage } from './controllers/organizations.js';
-import { showProjectsPage } from './controllers/projects.js';
-import { showCategoriesPage, showCategoryDetailsPage } from './controllers/categories.js';
+import { showOrganizationsPage,
+         processNewOrganizationForm,
+         showOrganizationDetailsPage,
+         showNewOrganizationForm} from './controllers/organizations.js';
+import { showProjectsPage,
+         showProjectDetailsPage } from './controllers/projects.js';
+import { showCategoriesPage,
+         showCategoryDetailsPage } from './controllers/categories.js';
 import { showTestErrorPage } from './controllers/errors.js';
-
-import { showOrganizationDetailsPage } from './controllers/organizations.js';
-
-import { showProjectDetailsPage } from './controllers/projects.js';
 
 const router = express.Router();
 
@@ -18,11 +18,16 @@ router.get('/projects', showProjectsPage);
 router.get('/categories', showCategoriesPage);
 router.get('/category/:id', showCategoryDetailsPage);
 router.get('/project/:id', showProjectDetailsPage);
+// Route for organization details page
+router.get('/organization/:id', showOrganizationDetailsPage);
+// Route for new organization page
+router.get('/new-organization', showNewOrganizationForm);
 
 // error-handling routes
 router.get('/test-error', showTestErrorPage);
 
-// Route for organization details page
-router.get('/organization/:id', showOrganizationDetailsPage);
+// Route to handle new organization form submission
+router.post('/new-organization', processNewOrganizationForm);
+
 
 export default router;
