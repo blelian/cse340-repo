@@ -12,9 +12,9 @@ logo_filename VARCHAR(255) NOT NULL
 CREATE TABLE service_project (
     project_id SERIAL PRIMARY KEY,
     organization_id INTEGER NOT NULL REFERENCES organization(organization_id),
-    title VARCHAR(150) NOT NULL,
+    title VARCHAR(200) NOT NULL,
     description TEXT NOT NULL,
-    location VARCHAR(150) NOT NULL,
+    location VARCHAR(200) NOT NULL,
     project_date DATE NOT NULL
 );
 
