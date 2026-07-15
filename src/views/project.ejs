@@ -24,24 +24,32 @@
 
     <p>
         <strong>Categories:</strong>
-
+    </p>
+    <p>
         <% categories.forEach(category => { %>
             <a href="/category/<%= category.category_id %>">
                 <%= category.name %>
             </a>
         <% }); %>
 
-    <p>
-        <a href="/edit-project/<%= project.project_id %>">
-            Edit Project
-        </a>
     </p>
 
     <p>
-        <a href="/project/<%= project.project_id %>/assign-categories">
-            Edit Categories
+    <% if (user && user.role_name === 'admin') { %>
+        <a href="/edit-project/<%= project.project_id %>">
+            Edit Project
         </a>
+    <% } %>
     </p>
+
+    <p>
+    <% if (user && user.role_name === 'admin') { %>
+        <a href="/project/<%= project.project_id %>/assign-categories">
+            Edit Project Categories
+        </a>
+    <% } %>
+    </p>
+    <p
         <a href="/projects">Back to Projects</a>
     </p>
 </main>
