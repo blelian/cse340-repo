@@ -32,7 +32,8 @@ import { showLoginForm,
          showDashboard,
          requireLogin,
          showAdminPage,
-         requireRole
+         requireRole,
+         showUsers
           } from './controllers/users.js';
 
 const router = express.Router();
@@ -74,6 +75,12 @@ router.get('/register', showUserRegistrationForm);
 router.get('/test-error', showTestErrorPage);
 // Protected dashboard route
 router.get('/dashboard', requireLogin, showDashboard);
+// Admin-only users page
+router.get(
+    '/users',
+    requireRole('admin'),
+    showUsers
+);
 
 //user login route
 router.post('/login', processLoginForm);

@@ -1,15 +1,19 @@
 <%- include('partials/header') %>
 
-<h1><%= title %></h1>
+<main>
+    <h1><%= title %></h1>
 
-<p>Welcome, <%= user.name %>!</p>
+    <p>Welcome, <strong><%= user.name %></strong>!</p>
 
-<h2>Administration</h2>
+    <h2>Administration</h2>
 
-<ul>
-    <li><a href="/new-organization">Add Organization</a></li>
-    <li><a href="/new-project">Add Project</a></li>
-    <li><a href="/new-category">Add Category</a></li>
-</ul>
+    <ul>
+        <li><a href="/users">Manage Users</a></li>
+        <li><a href="/new-organization">Add Organization</a></li>
+        <li><a href="/new-project">Add Project</a></li>
+        <li><a href="/new-category">Add Category</a></li>
+    </ul>
+
+</main>
 
 <%- include('partials/footer') %>
