@@ -4,6 +4,9 @@ import { createUser,
          getAllUsers
  } from '../models/users.js';
 
+ import {getVolunteerProjects}
+  from '../models/projects.js';
+
 const showUserRegistrationForm = (req, res) => {
     res.render('register', { title: 'Register' });
 };
@@ -84,15 +87,17 @@ const requireLogin = (req, res, next) => {
 
 
 
-const showDashboard = (req, res) => {
+const showDashboard = async(req, res) => {
     
     const user = req.session.user;
+    const volunteerProjects = await getVolunteerProjects(user.user_id);
     res.render('dashboard', { 
         title: 'Dashboard',
         name: user.name,
         email: user.email,
         role: user.role_name,
-        user
+        user,
+        volunteerProjects
 
     
 })};

@@ -19,6 +19,38 @@
         </p>
     <% } %>
 
+    <hr>
+
+<h3>My Volunteer Projects</h3>
+
+<% if (volunteerProjects.length === 0) { %>
+
+    <p>You have not signed up to volunteer for any projects.</p>
+
+<% } else { %>
+
+    <ul>
+
+        <% volunteerProjects.forEach(project => { %>
+
+            <li>
+
+                <strong><%= project.title %></strong>
+
+                (<%= new Date(project.project_date).toLocaleDateString() %>)
+
+                <a href="/project/<%= project.project_id %>/remove-volunteer">
+                    Remove Volunteer
+                </a>
+
+            </li>
+
+        <% }); %>
+
+    </ul>
+
+<% } %>
+
 </main>
 
 <%- include('partials/footer') %>
